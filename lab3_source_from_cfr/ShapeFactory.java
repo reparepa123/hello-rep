@@ -19,6 +19,11 @@ public class ShapeFactory {
     public int width = 25;
     public int height = 25;
 
+	/*
+	 * <p>Определяет геометрический тип и оформление фигуры
+	 * в зависимости от переданного параметра</p>
+	 * @param shape_type код вида фигуры
+	 */ 
     public ShapeFactory(int shape_type) {
         switch (shape_type / 10) {
             case 1: {
@@ -77,6 +82,14 @@ public class ShapeFactory {
         }
     }
 
+	/*
+	 * <p>Задает правила рисования фигуры типа звезда</p>
+	 * @param arms количество вершин фигуры (деленое на 2)
+	 * @param center точка оси вращения фигуры относительно ее центра
+	 * @param rOuter радиус более удаленных от центра точек
+	 * @param rInner радиус менее удаленных от центра точек
+	 * @return path новые координаты вершины
+	 */ 
     private static Shape createStar(int arms, Point center, double rOuter, double rInner) {
         double angle = 3.141592653589793 / (double)arms;
         GeneralPath path = new GeneralPath();
@@ -95,4 +108,5 @@ public class ShapeFactory {
         return path;
     }
 }
+
 

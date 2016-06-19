@@ -25,6 +25,12 @@ implements ActionListener {
     private int start_angle = 0;
     private int shape;
 
+	/*
+	 * <p>Приводит в движение фигуры,
+	 * устанавлиет скорость движения (анимации)
+	 * и её начальную задержку</p>
+	 * @param _shape код вида фигуры
+	 */ 
     public TitlesPanel(int _shape) {
         this.shape = _shape;
         this.animation = new Timer(50, this);
@@ -32,7 +38,10 @@ implements ActionListener {
         this.animation.start();
     }
 
-    @Override
+	/* 
+	 * <p>Повторяет процедуру отрисовки</p>
+	 */ 
+    @Override //Переопределение для импортированного абстрактного метода
     public void actionPerformed(ActionEvent arg0) {
         if (this.is_done) {
             this.repaint();
@@ -77,4 +86,5 @@ implements ActionListener {
         this.doDrawing(g);
     }
 }
+
 
